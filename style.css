@@ -1,0 +1,53 @@
+body {
+    background-color: #ffffff;
+}
+
+.logo {
+    width: 80px;
+    height: auto;
+    display: block;
+    margin-bottom: 15px;
+}
+.header {
+    background-color: #0b3d2b;
+    color: #ffffff;
+    padding: 60px;  
+    text-align: center;
+}
+.header span{
+    color:#34b362;
+}
+
+.nav-link {
+    color:#0b3d2b;
+
+}
+.nav-link:hover {
+    color:#34b362;
+}
+.footer{
+    background-color: #0b3d2b;
+    color: #ffffff;
+    padding: 20px;
+    text-align: center;
+}
+
+
+/* Project images */
+.project-img {
+    height: 250px;
+    width: 100%;
+    object-fit: cover;
+}
+
+/* Project cards */
+.card {
+    border: none;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
