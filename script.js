@@ -31,3 +31,53 @@ searchButton.addEventListener('click', function() {
 
 
 });
+
+
+
+
+// LOGIN FORM
+
+var loginForm = document.getElementById("loginForm");
+
+if (loginForm) {
+
+    loginForm.addEventListener("submit", function(event) {
+
+        event.preventDefault();
+
+        document.getElementById("message").textContent = "Login button pressed successfully!";
+        document.getElementById("message").style.color = "green";
+
+    });
+
+}
+
+// SIGN UP FORM
+
+var signupForm = document.getElementById("signupForm");
+
+if (signupForm) {
+
+    signupForm.addEventListener("submit", function(event) {
+
+        event.preventDefault();
+
+        var name = document.getElementById("signupName").value;
+        var email = document.getElementById("signupEmail").value;
+        var password = document.getElementById("signupPassword").value;
+
+        localStorage.setItem("userName", name);
+        localStorage.setItem("userEmail", email);
+        localStorage.setItem("userPassword", password);
+
+        document.getElementById("signupMessage").textContent = "Account created successfully!";
+        document.getElementById("signupMessage").style.color = "green";
+
+        signupForm.reset();
+
+    });
+
+}
+
+
+
