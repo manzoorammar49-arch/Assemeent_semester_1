@@ -53,7 +53,7 @@ function updateProjects() {
         var titleA = a.querySelector(".card-title").textContent.toLowerCase();
         var titleB = b.querySelector(".card-title").textContent.toLowerCase();
 
-        // Dates are written like 2024-05-10, so they can be compared as text
+        // Dates are written like 2026-05-10, so they can be compared as text
         var dateA = a.getAttribute("data-date");
         var dateB = b.getAttribute("data-date");
 

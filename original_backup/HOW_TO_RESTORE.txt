@@ -1,5 +1,5 @@
 This folder has the ORIGINAL version of every file Claude changed
-(how they were before F04, F01 and F02 were added).
+(how they were before Claude made any changes).
 
 To put a file back to the original:
 copy it from this folder and paste it over the one in the main folder.
@@ -9,6 +9,9 @@ copy it from this folder and paste it over the one in the main folder.
   readMe.md           -> original README (removes the F04, F01 and F02 ticks)
   login.html          -> original login page (old navbar)
   sign_up.html        -> original sign up page (old navbar)
+  about.html          -> original about page (copyright said 2024)
+  contact.html        -> original contact page (copyright said 2024)
 
-filter.js is a NEW file (there was no original).
-If you put projects_page.html back to the original, you can delete filter.js.
+New files (there was no original, delete them to remove):
+  filter.js           -> filtering and sorting. Delete it if you put projects_page.html back.
+  privacy_policy.html -> privacy policy page.
