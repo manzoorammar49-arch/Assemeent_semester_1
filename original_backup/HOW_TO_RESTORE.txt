@@ -1,16 +1,12 @@
-These are copies of my files from before Claude changed them.
+This folder has the ORIGINAL version of every file Claude changed
+(how they were before F04, F01 and F02 were added).
 
--------------------------------------------------
-UNDO F01 (new homepage) - files are in the "before_F01" folder
--------------------------------------------------
-1. Copy index.html from original_backup/before_F01 and paste it over the one in the main folder.
-2. Copy readMe.md from original_backup/before_F01 and paste it over the one in the main folder.
-No new files were added for F01.
+To put a file back to the original:
+copy it from this folder and paste it over the one in the main folder.
 
--------------------------------------------------
-UNDO F04 (filtering and sorting) - files are in this folder
--------------------------------------------------
-1. Copy projects_page.html from this folder and paste it over the one in the main folder.
-2. Copy readMe.md from this folder and paste it over the one in the main folder.
-   (Note: this readMe.md is from before F04 AND F01, so it also removes the F01 tick.)
-3. Delete filter.js from the main folder (it is a new file, it was not there before).
+  index.html          -> original homepage (removes F01 and F02 changes)
+  projects_page.html  -> original projects page (removes F04 changes)
+  readMe.md           -> original README (removes the F04, F01 and F02 ticks)
+
+filter.js is a NEW file (there was no original).
+If you put projects_page.html back to the original, you can delete filter.js.

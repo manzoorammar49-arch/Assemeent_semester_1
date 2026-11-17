@@ -2,13 +2,13 @@ All MVPS I AM DOING AND status
 
 F01. Homepage with featured tips and projects ✅ 
 
-F02. Category-based browsing
+F02. Category-based browsing ✅ 
 
 F03. Keyword search ✅ 
 
 F04. Filtering and sorting ✅ 
 
-F05. Detailed post/project page ✅ 
+F05. Detailed post/project page  
 
 F06. Submit a tip, guide or recommendation
 
@@ -16,7 +16,7 @@ F07. Photographs and project galleries
 
 F08. Responsive desktop/mobile navigation
 
-F09. Registration and login pages
+F09. Registration and login pages ✅
 
 F10. User profile page
 

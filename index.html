@@ -53,6 +53,25 @@
     </div>
 
 
+    <!-- Browse by Category (F02) -->
+    <!-- Each button opens the projects page with that category already picked -->
+    <!-- e.g. projects_page.html?category=garden  (filter.js reads the bit after the ?) -->
+    <div class="container mt-5 text-center">
+
+        <h2 class="mb-2">Browse by Category</h2>
+        <p class="text-muted mb-4">Pick a category to see matching projects</p>
+
+        <!-- d-flex flex-wrap = buttons sit in a row and move to a new line on small screens -->
+        <div class="d-flex flex-wrap justify-content-center gap-3">
+            <a href="projects_page.html?category=garden" class="btn btn-outline-success btn-lg rounded-pill px-4">Garden</a>
+            <a href="projects_page.html?category=painting" class="btn btn-outline-success btn-lg rounded-pill px-4">Painting</a>
+            <a href="projects_page.html?category=renovation" class="btn btn-outline-success btn-lg rounded-pill px-4">Renovation</a>
+            <a href="projects_page.html?category=building" class="btn btn-outline-success btn-lg rounded-pill px-4">Building</a>
+        </div>
+
+    </div>
+
+
     <!-- Featured Projects (F01) -->
     <div class="container my-5">
 

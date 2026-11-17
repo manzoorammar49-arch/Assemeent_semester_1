@@ -21,6 +21,20 @@ if (categorySelect && sortSelect && projectList) {
         updateProjects();
     });
 
+    // CATEGORY FROM THE LINK (F02)
+    // If the page was opened like projects_page.html?category=garden
+    // then pick "garden" in the Category box before showing the projects
+    var linkInfo = new URLSearchParams(window.location.search);
+    var categoryFromLink = linkInfo.get("category");
+
+    if (categoryFromLink) {
+        // Only use it if it matches one of the options in the Category box
+        var matchingOption = categorySelect.querySelector('option[value="' + categoryFromLink + '"]');
+        if (matchingOption) {
+            categorySelect.value = categoryFromLink;
+        }
+    }
+
     // Show the projects in the right order when the page first loads
     updateProjects();
 }
