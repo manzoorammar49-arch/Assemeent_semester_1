@@ -14,7 +14,7 @@ F06. Submit a tip, guide or recommendation
 
 F07. Photographs and project galleries
 
-F08. Responsive desktop/mobile navigation
+F08. Responsive desktop/mobile navigation ✅ 
 
 F09. Registration and login pages ✅
 
