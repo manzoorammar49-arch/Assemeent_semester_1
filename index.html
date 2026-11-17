@@ -1,4 +1,4 @@
- 
+
 
 <head>
      <title>Homehub</title>
@@ -26,17 +26,151 @@
     </nav>
 
 
-    <div class="text-center mt-5">
-        <input type="search" id="searchInput" placeholder="Search...">
-        <button id="searchButton">Search</button> 
-        <div id="searchResults" class=" container mt-3"></div>
+    <!-- Welcome Banner (F01) -->
+    <!-- bg-success = green background, text-white = white text, py-5 = big space top and bottom -->
+    <div class="bg-success text-white text-center py-5">
+        <div class="container">
+
+            <h1 class="display-4 fw-bold">Welcome to Homehub</h1>
+            <p class="lead mb-4">Share your DIY projects, get inspired and learn new skills.</p>
+
+            <!-- Search Bar -->
+            <!-- input-group puts the box and the button together in one bar -->
+            <!-- col-md-8 col-lg-6 mx-auto = not too wide, and centred -->
+            <div class="col-md-8 col-lg-6 mx-auto">
+                <div class="input-group input-group-lg shadow">
+                    <input type="search" id="searchInput" class="form-control rounded-start-pill ps-4" placeholder="Search projects e.g. garden, kitchen...">
+                    <button id="searchButton" class="btn btn-dark rounded-end-pill px-4">Search</button>
+                </div>
+            </div>
+
+            <!-- The search results appear in here (filled in by script.js) -->
+            <div class="col-md-8 col-lg-6 mx-auto mt-3">
+                <div id="searchResults" class="bg-white text-dark rounded-3 text-start px-4"></div>
+            </div>
+
+        </div>
     </div>
+
+
+    <!-- Featured Projects (F01) -->
+    <div class="container my-5">
+
+        <h2 class="text-center mb-2">Featured Projects</h2>
+        <p class="text-center text-muted mb-4">Some of our favourite projects from the community</p>
+
+        <!-- row g-4 = a row of cards with space between them -->
+        <div class="row g-4">
+
+            <!-- Featured Project 1 -->
+            <div class="col-md-4">
+                <div class="card h-100 shadow-sm">
+                    <img src="kitchen_renovation.jpg" class="card-img-top project-img" alt="Kitchen Renovation">
+                    <div class="card-body">
+                        <span class="badge bg-success mb-2">Renovation</span>
+                        <h5 class="card-title">Kitchen Renovation</h5>
+                        <p class="card-text">A full kitchen makeover that looks amazing and works much better.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Featured Project 2 -->
+            <div class="col-md-4">
+                <div class="card h-100 shadow-sm">
+                    <img src="garden_makeover.jpg" class="card-img-top project-img" alt="Garden Makeover">
+                    <div class="card-body">
+                        <span class="badge bg-success mb-2">Garden</span>
+                        <h5 class="card-title">Garden makeover</h5>
+                        <p class="card-text">Turning a garden into a step farm using recycled materials.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Featured Project 3 -->
+            <div class="col-md-4">
+                <div class="card h-100 shadow-sm">
+                    <img src="bedroom_painting.jpg" class="card-img-top project-img" alt="Bedroom Painting">
+                    <div class="card-body">
+                        <span class="badge bg-success mb-2">Painting</span>
+                        <h5 class="card-title">Painting my bedroom</h5>
+                        <p class="card-text">A fresh new look for a bedroom without spending a lot of money.</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Button to see all projects -->
+        <div class="text-center mt-4">
+            <a href="projects_page.html" class="btn btn-outline-success btn-lg">See all projects</a>
+        </div>
+
+    </div>
+
+
+    <!-- Featured Tips (F01) -->
+    <!-- bg-light = light grey background so this section stands out -->
+    <div class="bg-light py-5">
+        <div class="container">
+
+            <h2 class="text-center mb-2">Featured Tips</h2>
+            <p class="text-center text-muted mb-4">Quick tips to help with your next DIY job</p>
+
+            <div class="row g-4">
+
+                <!-- Tip 1 -->
+                <div class="col-md-4">
+                    <div class="card h-100 shadow-sm border-start border-success border-4">
+                        <div class="card-body">
+                            <h5 class="card-title">Measure twice, cut once</h5>
+                            <p class="card-text">Always check your measurements before you cut. It saves time, money and materials.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tip 2 -->
+                <div class="col-md-4">
+                    <div class="card h-100 shadow-sm border-start border-success border-4">
+                        <div class="card-body">
+                            <h5 class="card-title">Prep before you paint</h5>
+                            <p class="card-text">Clean the walls, fill any holes and use masking tape for clean, sharp edges.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tip 3 -->
+                <div class="col-md-4">
+                    <div class="card h-100 shadow-sm border-start border-success border-4">
+                        <div class="card-body">
+                            <h5 class="card-title">Safety first</h5>
+                            <p class="card-text">Wear goggles and gloves when using power tools, and keep your work area tidy.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+
+    <!-- Join Us Box (F01) -->
+    <div class="container my-5">
+        <div class="bg-success text-white text-center rounded-4 p-5">
+            <h2>Got a project to share?</h2>
+            <p class="lead">Join Homehub today and show the community what you have made.</p>
+            <a href="sign_up.html" class="btn btn-light btn-lg">Sign up</a>
+            <a href="login.html" class="btn btn-outline-light btn-lg">Login</a>
+        </div>
+    </div>
+
+
      <script src="script.js"></script>
     <footer class="footer mt-5">
         <div class="text-center p-3" >
             &copy; 2024 Homehub. All rights reserved.
         </div>
     </footer>
-        
+
 
 </body>

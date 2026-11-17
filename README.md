@@ -1,6 +1,6 @@
 All MVPS I AM DOING AND status
 
-F01. Homepage with featured tips and projects
+F01. Homepage with featured tips and projects ✅ 
 
 F02. Category-based browsing
 

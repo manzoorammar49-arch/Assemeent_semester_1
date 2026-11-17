@@ -1,8 +1,16 @@
-These are copies of my files BEFORE F04 (filtering and sorting) was added.
+These are copies of my files from before Claude changed them.
 
-To go back to the original:
+-------------------------------------------------
+UNDO F01 (new homepage) - files are in the "before_F01" folder
+-------------------------------------------------
+1. Copy index.html from original_backup/before_F01 and paste it over the one in the main folder.
+2. Copy readMe.md from original_backup/before_F01 and paste it over the one in the main folder.
+No new files were added for F01.
+
+-------------------------------------------------
+UNDO F04 (filtering and sorting) - files are in this folder
+-------------------------------------------------
 1. Copy projects_page.html from this folder and paste it over the one in the main folder.
 2. Copy readMe.md from this folder and paste it over the one in the main folder.
+   (Note: this readMe.md is from before F04 AND F01, so it also removes the F01 tick.)
 3. Delete filter.js from the main folder (it is a new file, it was not there before).
-
-Nothing else was changed.
