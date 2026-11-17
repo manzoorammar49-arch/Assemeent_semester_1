@@ -7,6 +7,24 @@ if (contactForm) {
         contactForm.reset(); // Reset the form fields
     });
 }
+
+// PROJECT DETAILS PAGE (F05)
+// The link looks like project_details.html?project=garden
+// All the projects are already on the page but hidden (d-none).
+// This code finds the one named in the link and shows it.
+var projectDetailsPage = document.getElementById("projectDetailsPage");
+if (projectDetailsPage) {
+    var linkInfo = new URLSearchParams(window.location.search);   // read the link
+    var projectName = linkInfo.get("project");                     // e.g. "garden"
+    var chosenProject = document.getElementById("project-" + projectName);
+
+    if (chosenProject) {
+        chosenProject.classList.remove("d-none");   // show the project
+    } else {
+        document.getElementById("projectNotFound").classList.remove("d-none");   // wrong link
+    }
+}
+
 const searchButton = document.getElementById('searchButton');
 const searchInput = document.getElementById('searchInput');
 const searchResults = document.getElementById('searchResults');

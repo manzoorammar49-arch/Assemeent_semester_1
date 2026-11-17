@@ -1,0 +1,474 @@
+
+<head>
+     <title>Project Details - Homehub</title>
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+     <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+   <!-- Top Navbar -->
+    <nav class="navbar bg-white shadow-sm">
+        <div class="container">
+
+            <a class="navbar-brand" href="#">
+                <img src="logo.jpg" alt="Logo" width="30" height="30" class="d-inline-block align-text-top">
+                Homehub
+            </a>
+            <div class="d-flex gap-3">
+                <a class="nav-link" href="index.html">Home</a>
+                <a class="nav-link" href="about.html">About</a>
+                <a class="nav-link" href="contact.html">Contact</a>
+                <a class="nav-link" href="projects_page.html">Projects</a>
+            </div>
+        </div>
+    </nav>
+
+
+    <!-- PROJECT DETAILS PAGE (F05) -->
+    <!-- Every project below is hidden with d-none.                          -->
+    <!-- script.js shows the one in the link, e.g. ?project=garden shows      -->
+    <!-- the box with id="project-garden".                                   -->
+    <!-- To add a new project: copy one whole project box, change the id     -->
+    <!-- and the text, then link to it with ?project=yourname                -->
+    <div class="container my-5" id="projectDetailsPage">
+
+        <!-- Back button -->
+        <a href="projects_page.html" class="btn btn-outline-success mb-4">&larr; Back to projects</a>
+
+
+        <!-- ================= Project: Garden makeover ================= -->
+        <div id="project-garden" class="d-none">
+            <!-- Big photo: ratio-21x9 makes a wide box, object-fit-cover stops the photo looking stretched -->
+            <div class="ratio ratio-21x9 mb-4">
+                <img src="garden_makeover.jpg" class="rounded-4 shadow object-fit-cover" alt="Garden Makeover">
+            </div>
+
+            <span class="badge bg-success mb-2">Garden</span>
+            <h1>Garden makeover</h1>
+            <p class="text-muted">Shared by John Doe &middot; Posted 10 May 2026</p>
+
+            <!-- 3 info boxes -->
+            <div class="row g-3 my-3 text-center">
+                <div class="col-md-4"><div class="bg-light rounded-3 p-3"><strong>Time</strong><br>3 weekends</div></div>
+                <div class="col-md-4"><div class="bg-light rounded-3 p-3"><strong>Difficulty</strong><br>Medium</div></div>
+                <div class="col-md-4"><div class="bg-light rounded-3 p-3"><strong>Cost</strong><br>About &pound;150</div></div>
+            </div>
+
+            <h4 class="mt-4">About this project</h4>
+            <p>I turned my sloped garden into a step farm so I could grow plants on each level.
+               I used recycled wood and bricks to keep the cost down. It took a lot of patience,
+               but it looks amazing now and I can finally use the whole garden!</p>
+
+            <div class="row mt-4">
+                <div class="col-md-6">
+                    <h4>What you need</h4>
+                    <ul>
+                        <li>Recycled wooden planks or pallets</li>
+                        <li>Old bricks</li>
+                        <li>Soil and compost</li>
+                        <li>Spade, saw and hammer</li>
+                        <li>Nails and screws</li>
+                    </ul>
+                </div>
+                <div class="col-md-6">
+                    <h4>How I did it</h4>
+                    <ol>
+                        <li>Cleared the grass and weeds.</li>
+                        <li>Dug the slope into flat steps.</li>
+                        <li>Built wooden edges to hold each step.</li>
+                        <li>Filled each step with soil and compost.</li>
+                        <li>Planted flowers and herbs.</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- ================= Project: Dry wall Shelves ================= -->
+        <div id="project-shelves" class="d-none">
+            <div class="ratio ratio-21x9 mb-4">
+                <img src="drywall_shelves.jpg" class="rounded-4 shadow object-fit-cover" alt="Dry Wall Shelves">
+            </div>
+
+            <span class="badge bg-success mb-2">Building</span>
+            <h1>Dry wall Shelves</h1>
+            <p class="text-muted">Shared by Miles Morales &middot; Posted 18 February 2026</p>
+
+            <div class="row g-3 my-3 text-center">
+                <div class="col-md-4"><div class="bg-light rounded-3 p-3"><strong>Time</strong><br>2 days</div></div>
+                <div class="col-md-4"><div class="bg-light rounded-3 p-3"><strong>Difficulty</strong><br>Hard</div></div>
+                <div class="col-md-4"><div class="bg-light rounded-3 p-3"><strong>Cost</strong><br>About &pound;80</div></div>
+            </div>
+
+            <h4 class="mt-4">About this project</h4>
+            <p>I built custom shelves into my wall using drywall and a wooden frame.
+               It was hard to get everything level, but it was a really rewarding project
+               and now I have loads more storage space.</p>
+
+            <div class="row mt-4">
+                <div class="col-md-6">
+                    <h4>What you need</h4>
+                    <ul>
+                        <li>Drywall boards</li>
+                        <li>Wooden battens for the frame</li>
+                        <li>Drywall screws</li>
+                        <li>Filler and sandpaper</li>
+                        <li>Spirit level and drill</li>
+                    </ul>
+                </div>
+                <div class="col-md-6">
+                    <h4>How I did it</h4>
+                    <ol>
+                        <li>Measured and marked out the shelves.</li>
+                        <li>Built a wooden frame and fixed it to the wall.</li>
+                        <li>Cut the drywall and screwed it to the frame.</li>
+                        <li>Filled the gaps and sanded it smooth.</li>
+                        <li>Painted the shelves to match the room.</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- ================= Project: Painting my bedroom ================= -->
+        <div id="project-bedroom" class="d-none">
+            <div class="ratio ratio-21x9 mb-4">
+                <img src="bedroom_painting.jpg" class="rounded-4 shadow object-fit-cover" alt="Bedroom Painting">
+            </div>
+
+            <span class="badge bg-success mb-2">Painting</span>
+            <h1>Painting my bedroom</h1>
+            <p class="text-muted">Shared by Peter Parker &middot; Posted 5 March 2026</p>
+
+            <div class="row g-3 my-3 text-center">
+                <div class="col-md-4"><div class="bg-light rounded-3 p-3"><strong>Time</strong><br>1 weekend</div></div>
+                <div class="col-md-4"><div class="bg-light rounded-3 p-3"><strong>Difficulty</strong><br>Easy</div></div>
+                <div class="col-md-4"><div class="bg-light rounded-3 p-3"><strong>Cost</strong><br>About &pound;60</div></div>
+            </div>
+
+            <h4 class="mt-4">About this project</h4>
+            <p>My bedroom walls were old and faded, so I gave them a fresh new colour.
+               It was fun, easy and didn't cost me an arm and a leg!
+               The room feels brighter and much bigger now.</p>
+
+            <div class="row mt-4">
+                <div class="col-md-6">
+                    <h4>What you need</h4>
+                    <ul>
+                        <li>2 tins of wall paint</li>
+                        <li>Roller, tray and brushes</li>
+                        <li>Masking tape</li>
+                        <li>Dust sheets</li>
+                        <li>Filler for small holes</li>
+                    </ul>
+                </div>
+                <div class="col-md-6">
+                    <h4>How I did it</h4>
+                    <ol>
+                        <li>Moved the furniture and covered the floor.</li>
+                        <li>Filled any holes and cleaned the walls.</li>
+                        <li>Taped around the edges and sockets.</li>
+                        <li>Painted 2 coats, letting each one dry.</li>
+                        <li>Removed the tape while the paint was still a bit wet.</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- ================= Project: Kitchen Renovation ================= -->
+        <div id="project-kitchen" class="d-none">
+            <div class="ratio ratio-21x9 mb-4">
+                <img src="kitchen_renovation.jpg" class="rounded-4 shadow object-fit-cover" alt="Kitchen Renovation">
+            </div>
+
+            <span class="badge bg-success mb-2">Renovation</span>
+            <h1>Kitchen Renovation</h1>
+            <p class="text-muted">Shared by Peter Parker &middot; Posted 22 July 2026</p>
+
+            <div class="row g-3 my-3 text-center">
+                <div class="col-md-4"><div class="bg-light rounded-3 p-3"><strong>Time</strong><br>4 weeks</div></div>
+                <div class="col-md-4"><div class="bg-light rounded-3 p-3"><strong>Difficulty</strong><br>Hard</div></div>
+                <div class="col-md-4"><div class="bg-light rounded-3 p-3"><strong>Cost</strong><br>About &pound;3,000</div></div>
+            </div>
+
+            <h4 class="mt-4">About this project</h4>
+            <p>I renovated my whole kitchen with new cupboard doors, worktops and lights.
+               The new kitchen looks amazing and is much more functional.
+               I got a professional in for the gas and electrics to keep it safe.</p>
+
+            <div class="row mt-4">
+                <div class="col-md-6">
+                    <h4>What you need</h4>
+                    <ul>
+                        <li>New cupboard doors and handles</li>
+                        <li>Worktops</li>
+                        <li>Tiles and tile adhesive</li>
+                        <li>New lights</li>
+                        <li>Drill, saw and spirit level</li>
+                    </ul>
+                </div>
+                <div class="col-md-6">
+                    <h4>How I did it</h4>
+                    <ol>
+                        <li>Planned the new layout and budget.</li>
+                        <li>Took off the old doors and worktops.</li>
+                        <li>Fitted the new worktops.</li>
+                        <li>Tiled the wall behind the sink.</li>
+                        <li>Fitted new doors, handles and lights.</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- ================= Project: Laminated floor ================= -->
+        <div id="project-floor" class="d-none">
+            <div class="ratio ratio-21x9 mb-4">
+                <img src="laminating_floor.jpg" class="rounded-4 shadow object-fit-cover" alt="Laminate Floor">
+            </div>
+
+            <span class="badge bg-success mb-2">Renovation</span>
+            <h1>Laminated floor</h1>
+            <p class="text-muted">Shared by Peter Parker &middot; Posted 30 January 2026</p>
+
+            <div class="row g-3 my-3 text-center">
+                <div class="col-md-4"><div class="bg-light rounded-3 p-3"><strong>Time</strong><br>2 days</div></div>
+                <div class="col-md-4"><div class="bg-light rounded-3 p-3"><strong>Difficulty</strong><br>Medium</div></div>
+                <div class="col-md-4"><div class="bg-light rounded-3 p-3"><strong>Cost</strong><br>About &pound;400</div></div>
+            </div>
+
+            <h4 class="mt-4">About this project</h4>
+            <p>I replaced my old carpet with a laminated floor. The click-together boards
+               were easier to fit than I expected. The new floor looks amazing and is much
+               more durable and easier to clean.</p>
+
+            <div class="row mt-4">
+                <div class="col-md-6">
+                    <h4>What you need</h4>
+                    <ul>
+                        <li>Laminate floor boards</li>
+                        <li>Underlay</li>
+                        <li>Spacers</li>
+                        <li>Saw and tape measure</li>
+                        <li>Skirting or beading for the edges</li>
+                    </ul>
+                </div>
+                <div class="col-md-6">
+                    <h4>How I did it</h4>
+                    <ol>
+                        <li>Pulled up the old carpet.</li>
+                        <li>Laid the underlay across the room.</li>
+                        <li>Clicked the boards together row by row.</li>
+                        <li>Cut the last row to fit.</li>
+                        <li>Added beading around the edges.</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- ================= Project: Vegetable Garden ================= -->
+        <div id="project-vegetable" class="d-none">
+            <div class="ratio ratio-21x9 mb-4">
+                <img src="vegetabe_garden.jpg" class="rounded-4 shadow object-fit-cover" alt="Vegetable Garden">
+            </div>
+
+            <span class="badge bg-success mb-2">Garden</span>
+            <h1>Vegetable Garden</h1>
+            <p class="text-muted">Shared by Peter Parker &middot; Posted 14 June 2026</p>
+
+            <div class="row g-3 my-3 text-center">
+                <div class="col-md-4"><div class="bg-light rounded-3 p-3"><strong>Time</strong><br>1 weekend</div></div>
+                <div class="col-md-4"><div class="bg-light rounded-3 p-3"><strong>Difficulty</strong><br>Easy</div></div>
+                <div class="col-md-4"><div class="bg-light rounded-3 p-3"><strong>Cost</strong><br>About &pound;70</div></div>
+            </div>
+
+            <h4 class="mt-4">About this project</h4>
+            <p>I built raised beds to grow my own vegetables. It was a fun and creative process,
+               and now I have fresh tomatoes, lettuce and carrots all summer!</p>
+
+            <div class="row mt-4">
+                <div class="col-md-6">
+                    <h4>What you need</h4>
+                    <ul>
+                        <li>Wooden planks for raised beds</li>
+                        <li>Screws</li>
+                        <li>Soil and compost</li>
+                        <li>Seeds or small plants</li>
+                        <li>Watering can</li>
+                    </ul>
+                </div>
+                <div class="col-md-6">
+                    <h4>How I did it</h4>
+                    <ol>
+                        <li>Picked a sunny spot in the garden.</li>
+                        <li>Screwed the planks together into boxes.</li>
+                        <li>Filled the boxes with soil and compost.</li>
+                        <li>Planted the seeds in rows.</li>
+                        <li>Watered them every day.</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- ================= Project: Bathroom Renovation ================= -->
+        <div id="project-bathroom" class="d-none">
+            <div class="ratio ratio-21x9 mb-4">
+                <img src="bathroom_renovation.jpg" class="rounded-4 shadow object-fit-cover" alt="Bathroom Renovation">
+            </div>
+
+            <span class="badge bg-success mb-2">Renovation</span>
+            <h1>Bathroom Renovation</h1>
+            <p class="text-muted">Shared by Aisha Khan &middot; Posted 9 August 2026</p>
+
+            <div class="row g-3 my-3 text-center">
+                <div class="col-md-4"><div class="bg-light rounded-3 p-3"><strong>Time</strong><br>3 weeks</div></div>
+                <div class="col-md-4"><div class="bg-light rounded-3 p-3"><strong>Difficulty</strong><br>Hard</div></div>
+                <div class="col-md-4"><div class="bg-light rounded-3 p-3"><strong>Cost</strong><br>About &pound;2,500</div></div>
+            </div>
+
+            <h4 class="mt-4">About this project</h4>
+            <p>This is the before photo of our old, tired bathroom! The plan is new tiles,
+               a walk-in shower and a fresh vanity unit. I will share the after photos
+               once it is finished.</p>
+
+            <div class="row mt-4">
+                <div class="col-md-6">
+                    <h4>What you need</h4>
+                    <ul>
+                        <li>Wall and floor tiles</li>
+                        <li>Walk-in shower tray and screen</li>
+                        <li>New vanity unit and sink</li>
+                        <li>Tile adhesive and grout</li>
+                        <li>Silicone sealant</li>
+                    </ul>
+                </div>
+                <div class="col-md-6">
+                    <h4>How I did it</h4>
+                    <ol>
+                        <li>Took out the old bath and sink.</li>
+                        <li>Got a plumber to move the pipes.</li>
+                        <li>Fitted the shower tray and screen.</li>
+                        <li>Tiled the walls and floor.</li>
+                        <li>Fitted the new vanity and sealed everything.</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- ================= Project: Painting the Fence ================= -->
+        <div id="project-fence" class="d-none">
+            <div class="ratio ratio-21x9 mb-4">
+                <img src="painting_fence.jpg" class="rounded-4 shadow object-fit-cover" alt="Painting a Fence">
+            </div>
+
+            <span class="badge bg-success mb-2">Painting</span>
+            <h1>Painting the Fence</h1>
+            <p class="text-muted">Shared by Jordan Taylor &middot; Posted 20 September 2026</p>
+
+            <div class="row g-3 my-3 text-center">
+                <div class="col-md-4"><div class="bg-light rounded-3 p-3"><strong>Time</strong><br>1 afternoon</div></div>
+                <div class="col-md-4"><div class="bg-light rounded-3 p-3"><strong>Difficulty</strong><br>Easy</div></div>
+                <div class="col-md-4"><div class="bg-light rounded-3 p-3"><strong>Cost</strong><br>About &pound;120</div></div>
+            </div>
+
+            <h4 class="mt-4">About this project</h4>
+            <p>I bought a new paint spray gun and tried it on my garden fence.
+               With a brush this job used to take me all weekend, but the spray gun
+               did the whole fence in one afternoon. I am never going back to a brush!</p>
+
+            <div class="row mt-4">
+                <div class="col-md-6">
+                    <h4>What you need</h4>
+                    <ul>
+                        <li>Paint spray gun</li>
+                        <li>Fence paint</li>
+                        <li>Stiff brush for cleaning</li>
+                        <li>Plastic sheets to protect plants</li>
+                        <li>Mask and goggles</li>
+                    </ul>
+                </div>
+                <div class="col-md-6">
+                    <h4>How I did it</h4>
+                    <ol>
+                        <li>Brushed off dirt and cobwebs.</li>
+                        <li>Covered plants and the path with sheets.</li>
+                        <li>Tested the spray gun on a piece of cardboard.</li>
+                        <li>Sprayed the fence in smooth up-and-down strokes.</li>
+                        <li>Added a second coat once it was dry.</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- ================= Project: Building IKEA Shelves ================= -->
+        <div id="project-ikea" class="d-none">
+            <div class="ratio ratio-21x9 mb-4">
+                <img src="building_ikea.jpg" class="rounded-4 shadow object-fit-cover" alt="Building IKEA Furniture">
+            </div>
+
+            <span class="badge bg-success mb-2">Building</span>
+            <h1>Building IKEA Shelves</h1>
+            <p class="text-muted">Shared by Marcus Johnson &middot; Posted 15 October 2026</p>
+
+            <div class="row g-3 my-3 text-center">
+                <div class="col-md-4"><div class="bg-light rounded-3 p-3"><strong>Time</strong><br>4 hours (should have been 2!)</div></div>
+                <div class="col-md-4"><div class="bg-light rounded-3 p-3"><strong>Difficulty</strong><br>Easy (in theory)</div></div>
+                <div class="col-md-4"><div class="bg-light rounded-3 p-3"><strong>Cost</strong><br>About &pound;60</div></div>
+            </div>
+
+            <h4 class="mt-4">About this project</h4>
+            <p>I built the whole shelf unit, stood back feeling very proud... then found
+               6 screws left over 🤣 Two hours later I realised one of the panels was upside down,
+               so I had to take half of it apart again. Lesson learned: read the instructions!</p>
+
+            <div class="row mt-4">
+                <div class="col-md-6">
+                    <h4>What you need</h4>
+                    <ul>
+                        <li>IKEA shelf unit flat pack</li>
+                        <li>The little Allen key (don't lose it!)</li>
+                        <li>Screwdriver</li>
+                        <li>Lots of patience</li>
+                        <li>A cup of tea</li>
+                    </ul>
+                </div>
+                <div class="col-md-6">
+                    <h4>How I did it</h4>
+                    <ol>
+                        <li>Laid out all the pieces on the floor.</li>
+                        <li>Skipped the instructions (big mistake).</li>
+                        <li>Built the frame and added the shelves.</li>
+                        <li>Found the spare screws and the upside down panel.</li>
+                        <li>Took it apart, read the instructions and built it again.</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Shows if the link has a project that does not exist -->
+        <div id="projectNotFound" class="d-none text-center py-5">
+            <h2>Project not found</h2>
+            <p class="text-muted">Sorry, we could not find that project.</p>
+            <a href="projects_page.html" class="btn btn-success">See all projects</a>
+        </div>
+
+    </div>
+
+
+    <script src="script.js"></script>
+
+    <footer class="footer mt-5">
+        <div class="text-center p-3">
+            &copy; 2026 Homehub. All rights reserved.
+            <br><a href="privacy_policy.html" class="text-white">Privacy Policy</a>
+        </div>
+    </footer>
+
+</body>

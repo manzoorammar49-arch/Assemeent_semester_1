@@ -11,8 +11,9 @@ copy it from this folder and paste it over the one in the main folder.
   sign_up.html        -> original sign up page (old navbar)
   about.html          -> original about page (copyright said 2024)
   contact.html        -> original contact page (copyright said 2024)
-  script.js           -> original script (before the 3 new projects were added to the search list)
+  script.js           -> original script (before new projects were added to the search list and before the F05 code)
 
 New files (there was no original, delete them to remove):
   filter.js           -> filtering and sorting. Delete it if you put projects_page.html back.
   privacy_policy.html -> privacy policy page.
+  project_details.html -> project details page (F05).

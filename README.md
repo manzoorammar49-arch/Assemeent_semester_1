@@ -8,7 +8,7 @@ F03. Keyword search ✅
 
 F04. Filtering and sorting ✅ 
 
-F05. Detailed post/project page  
+F05. Detailed post/project page ✅ 
 
 F06. Submit a tip, guide or recommendation
 
