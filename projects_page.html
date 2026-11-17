@@ -29,15 +29,49 @@
 
     <h2 class="text-center mb-4">Community Projects</h2>
 
-    <div class="row g-4">
+    <!-- Filter and Sort (F04) -->
+    <div class="row g-3 mb-4 justify-content-center">
+
+        <div class="col-md-4">
+            <label for="categorySelect" class="form-label">Category</label>
+            <select id="categorySelect" class="form-select">
+                <option value="all">All projects</option>
+                <option value="garden">Garden</option>
+                <option value="painting">Painting</option>
+                <option value="renovation">Renovation</option>
+                <option value="building">Building</option>
+            </select>
+        </div>
+
+        <div class="col-md-4">
+            <label for="sortSelect" class="form-label">Sort by</label>
+            <select id="sortSelect" class="form-select">
+                <option value="newest">Newest first</option>
+                <option value="oldest">Oldest first</option>
+                <option value="az">Name A to Z</option>
+                <option value="za">Name Z to A</option>
+            </select>
+        </div>
+
+        <div class="col-md-2 d-flex align-items-end">
+            <button id="resetButton" class="btn btn-outline-secondary w-100">Reset</button>
+        </div>
+
+    </div>
+
+    <!-- Shows when no project matches the filter -->
+    <p id="noProjectsMessage" class="text-center text-muted d-none">No projects found in this category.</p>
+
+    <div class="row g-4" id="projectList">
 
         <!-- Project 1 -->
-        <div class="col-lg-4 col-md-6">
+        <div class="col-lg-4 col-md-6 project-item" data-category="garden" data-date="2024-05-10">
             <div class="card h-100 shadow-sm">
                 <img src="garden_makeover.jpg" class="card-img-top project-img" alt="Garden Makeover">
                 <div class="card-body">
                     <h5 class="card-title">Garden makeover</h5>
                     <p class="text-muted">Shared by John Doe</p>
+                    <p class="text-muted small">Posted 10 May 2024</p>
                     <p class="card-text">
                         DIYing my garden to a step farm!
                         Using recycled material and a lot of patience 🤣
@@ -47,12 +81,13 @@
         </div>
 
         <!-- Project 2 -->
-        <div class="col-lg-4 col-md-6">
+        <div class="col-lg-4 col-md-6 project-item" data-category="building" data-date="2024-02-18">
             <div class="card h-100 shadow-sm">
                 <img src="drywall_shelves.jpg" class="card-img-top project-img" alt="Dry Wall Shelves">
                 <div class="card-body">
                     <h5 class="card-title">Dry wall Shelves</h5>
                     <p class="text-muted">Shared by Miles Morales</p>
+                    <p class="text-muted small">Posted 18 February 2024</p>
                     <p class="card-text">
                         I am happy to share my DIY project of creating custom shelves using drywall.
                         It was a challenging but rewarding experience.
@@ -62,12 +97,13 @@
         </div>
 
         <!-- Project 3 -->
-        <div class="col-lg-4 col-md-6">
+        <div class="col-lg-4 col-md-6 project-item" data-category="painting" data-date="2024-03-05">
             <div class="card h-100 shadow-sm">
                 <img src="bedroom_painting.jpg" class="card-img-top project-img" alt="Bedroom Painting">
                 <div class="card-body">
                     <h5 class="card-title">Painting my bedroom</h5>
                     <p class="text-muted">Shared by Peter Parker</p>
+                    <p class="text-muted small">Posted 5 March 2024</p>
                     <p class="card-text">
                         I am thrilled to share my recent DIY project of painting my bedroom!
                         It was fun and didn't cost me an arm and a leg!
@@ -77,12 +113,13 @@
         </div>
 
         <!-- Project 4 -->
-        <div class="col-lg-4 col-md-6">
+        <div class="col-lg-4 col-md-6 project-item" data-category="renovation" data-date="2024-07-22">
             <div class="card h-100 shadow-sm">
                 <img src="kitchen_renovation.jpg" class="card-img-top project-img" alt="Kitchen Renovation">
                 <div class="card-body">
                     <h5 class="card-title">Kitchen Renovation</h5>
                     <p class="text-muted">Shared by Peter Parker</p>
+                    <p class="text-muted small">Posted 22 July 2024</p>
                     <p class="card-text">
                         I am thrilled to share my recent DIY project of renovating my kitchen!
                         The new kitchen looks amazing and is much more functional!
@@ -92,12 +129,13 @@
         </div>
 
         <!-- Project 5 -->
-        <div class="col-lg-4 col-md-6">
+        <div class="col-lg-4 col-md-6 project-item" data-category="renovation" data-date="2024-01-30">
             <div class="card h-100 shadow-sm">
                 <img src="laminating_floor.jpg" class="card-img-top project-img" alt="Laminate Floor">
                 <div class="card-body">
                     <h5 class="card-title">Laminated floor</h5>
                     <p class="text-muted">Shared by Peter Parker</p>
+                    <p class="text-muted small">Posted 30 January 2024</p>
                     <p class="card-text">
                         I am thrilled to share my recent DIY project of laying a laminated floor!
                         The new floor looks amazing and is much more durable!
@@ -107,12 +145,13 @@
         </div>
 
         <!-- Project 6 -->
-        <div class="col-lg-4 col-md-6">
+        <div class="col-lg-4 col-md-6 project-item" data-category="garden" data-date="2024-06-14">
             <div class="card h-100 shadow-sm">
                 <img src="vegetabe_garden.jpg" class="card-img-top project-img" alt="Vegetable Garden">
                 <div class="card-body">
                     <h5 class="card-title">Vegetable Garden</h5>
                     <p class="text-muted">Shared by Peter Parker</p>
+                    <p class="text-muted small">Posted 14 June 2024</p>
                     <p class="card-text">
                         I am thrilled to share my recent DIY project of creating a vegetable garden!
                         It was a fun and creative process!
@@ -131,6 +170,9 @@
             &copy; 2024 Homehub. All rights reserved.
         </div>
     </footer>
+
+    <!-- Filter and sort code (F04) -->
+    <script src="filter.js"></script>
 
 </body>
    

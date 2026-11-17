@@ -6,7 +6,7 @@ F02. Category-based browsing
 
 F03. Keyword search ✅ 
 
-F04. Filtering and sorting
+F04. Filtering and sorting ✅ 
 
 F05. Detailed post/project page ✅ 
 

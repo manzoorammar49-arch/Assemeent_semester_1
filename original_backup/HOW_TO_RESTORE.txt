@@ -1,0 +1,8 @@
+These are copies of my files BEFORE F04 (filtering and sorting) was added.
+
+To go back to the original:
+1. Copy projects_page.html from this folder and paste it over the one in the main folder.
+2. Copy readMe.md from this folder and paste it over the one in the main folder.
+3. Delete filter.js from the main folder (it is a new file, it was not there before).
+
+Nothing else was changed.
