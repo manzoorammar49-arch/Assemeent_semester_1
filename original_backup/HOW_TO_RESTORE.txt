@@ -7,6 +7,8 @@ copy it from this folder and paste it over the one in the main folder.
   index.html          -> original homepage (removes F01 and F02 changes)
   projects_page.html  -> original projects page (removes F04 changes)
   readMe.md           -> original README (removes the F04, F01 and F02 ticks)
+  login.html          -> original login page (old navbar)
+  sign_up.html        -> original sign up page (old navbar)
 
 filter.js is a NEW file (there was no original).
 If you put projects_page.html back to the original, you can delete filter.js.
