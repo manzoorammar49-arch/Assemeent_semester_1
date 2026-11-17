@@ -17,6 +17,9 @@ const projects =[
     "Kitchen Renovation",
     "laminated floor",
     "Vegetable Garden",
+    "Bathroom Renovation",
+    "Painting the Fence",
+    "Building IKEA Shelves",
 
 ];
 searchButton.addEventListener('click', function() {
