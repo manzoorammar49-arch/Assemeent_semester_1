@@ -1,0 +1,134 @@
+
+<head>
+     <title>Share a tip - Homehub</title>
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+     <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+   <!-- Top Navbar -->
+    <nav class="navbar navbar-expand-md bg-white shadow-sm">
+        <div class="container">
+
+            <!-- Logo and name (click to go Home) -->
+            <a class="navbar-brand" href="index.html">
+                <img src="logo.jpg" alt="Logo" width="30" height="30" class="d-inline-block align-text-top">
+                Homehub
+            </a>
+
+            <!-- Menu button (F08): only shows on small screens like phones -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainMenu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- The links: in a row on big screens, hidden in the menu button on phones -->
+            <div class="collapse navbar-collapse" id="mainMenu">
+                <div class="navbar-nav ms-auto gap-md-3">
+                    <a class="nav-link" href="index.html">Home</a>
+                    <a class="nav-link" href="about.html">About</a>
+                    <a class="nav-link" href="contact.html">Contact</a>
+                    <a class="nav-link" href="projects_page.html">Projects</a>
+                    <!-- Community menu: a dropdown with the community pages -->
+                    <div class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Community</a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="submit_tip.html">Share a tip</a>
+                            <!-- end of community links -->
+                        </div>
+                    </div>
+                    <a class="btn btn-success" href="login.html">Login</a>
+                </div>
+            </div>
+
+        </div>
+    </nav>
+
+    <!-- SUBMIT A TIP, GUIDE OR RECOMMENDATION (F06) -->
+    <!-- The form is saved by script.js into the browser (localStorage) -->
+    <div class="container my-5">
+
+        <div class="row justify-content-center">
+            <div class="col-lg-7">
+
+                <div class="card shadow-sm p-4">
+
+                    <h2 class="text-center mb-2">Share a tip</h2>
+                    <p class="text-center text-muted mb-4">Help the community with a quick tip, a how-to guide or something you recommend.</p>
+
+                    <form id="tipForm">
+
+                        <div class="row g-3 mb-3">
+                            <div class="col-md-6">
+                                <label for="tipType" class="form-label">What are you sharing?</label>
+                                <select id="tipType" class="form-select" required>
+                                    <option value="tip">A quick tip</option>
+                                    <option value="guide">A step-by-step guide</option>
+                                    <option value="recommendation">A recommendation</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="tipCategory" class="form-label">Category</label>
+                                <select id="tipCategory" class="form-select" required>
+                                    <option value="general">General</option>
+                                    <option value="garden">Garden</option>
+                                    <option value="painting">Painting</option>
+                                    <option value="renovation">Renovation</option>
+                                    <option value="building">Building</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="tipTitle" class="form-label">Title</label>
+                            <input type="text" id="tipTitle" class="form-control" maxlength="80" placeholder="e.g. Use a damp cloth to clean paint brushes" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="tipText" class="form-label">Your tip, guide or recommendation</label>
+                            <textarea id="tipText" class="form-control" rows="5" maxlength="1000" required></textarea>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="tipAuthor" class="form-label">Your name (leave empty to post as Anonymous)</label>
+                            <input type="text" id="tipAuthor" class="form-control" maxlength="40">
+                        </div>
+
+                        <button type="submit" class="btn btn-success w-100">Share it</button>
+
+                    </form>
+
+                    <!-- Shows after the form is sent -->
+                    <div id="tipMessage" class="alert alert-success mt-3 d-none">Thanks! Your post has been shared below.</div>
+
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+
+    <!-- Every tip people have shared (filled in by script.js) -->
+    <div class="bg-light py-5">
+        <div class="container">
+            <h2 class="text-center mb-4">Community tips</h2>
+            <div class="row g-4" id="allPosts"></div>
+        </div>
+    </div>
+
+    <footer class="footer mt-5">
+        <div class="text-center p-3" >
+            &copy; 2026 Homehub. All rights reserved.
+            <br><a href="privacy_policy.html" class="text-white">Privacy Policy</a>
+        </div>
+    </footer>
+        
+
+    <script src="script.js"></script>
+
+    <!-- Bootstrap's script: makes the phone menu button open and close (F08) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+ 

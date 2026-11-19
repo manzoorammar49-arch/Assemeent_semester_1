@@ -51,6 +51,47 @@ function findProject(id) {
 }
 
 
+// SAVING THINGS IN THE BROWSER
+// We do not have a server or database, so things people add (tips, comments,
+// likes...) are saved in the browser with localStorage.
+// localStorage can only store text, so lists are turned into text with JSON.
+
+// Gets a saved list. If nothing is saved yet, gives back an empty list []
+function loadList(name) {
+    var saved = localStorage.getItem(name);
+    if (saved) {
+        return JSON.parse(saved);
+    }
+    return [];
+}
+
+// Saves a list
+function saveList(name, list) {
+    localStorage.setItem(name, JSON.stringify(list));
+}
+
+// Stops people typing HTML code into a form and breaking the page.
+// e.g. "<b>hi</b>" is shown as the text <b>hi</b> instead of bold "hi"
+function safeText(text) {
+    var div = document.createElement("div");
+    div.textContent = text;
+    return div.innerHTML;
+}
+
+// Today's date written nicely, e.g. "19 November 2026"
+function todayText() {
+    return new Date().toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" });
+}
+
+// The name of the person logged in, or "" if nobody is logged in
+function currentUserName() {
+    if (localStorage.getItem("loggedIn") === "yes") {
+        return localStorage.getItem("userName") || "";
+    }
+    return "";
+}
+
+
 // KEYWORD SEARCH (F03)
 // Only runs on the homepage, because that is the only page with the search box.
 // (Before, this ran on every page and crashed, which stopped the login code working.)
@@ -139,3 +180,89 @@ if (signupForm) {
 
 
 
+
+
+
+// SUBMIT A TIP, GUIDE OR RECOMMENDATION (F06)
+// Used on submit_tip.html (the form and the list) and index.html (latest tips).
+// Every post is saved in a list called "homehubPosts".
+// Each post looks like:
+//   { type: "tip", title: "...", category: "garden", text: "...", author: "...", date: "..." }
+
+var tipForm = document.getElementById("tipForm");
+
+if (tipForm) {
+
+    // If someone is logged in, fill in their name for them
+    var tipAuthorBox = document.getElementById("tipAuthor");
+    if (currentUserName() !== "") {
+        tipAuthorBox.value = currentUserName();
+    }
+
+    tipForm.addEventListener("submit", function(event) {
+        event.preventDefault();
+
+        var newPost = {
+            type: document.getElementById("tipType").value,
+            title: document.getElementById("tipTitle").value.trim(),
+            category: document.getElementById("tipCategory").value,
+            text: document.getElementById("tipText").value.trim(),
+            author: tipAuthorBox.value.trim() || "Anonymous",
+            date: todayText()
+        };
+
+        // Add the new post to the start of the list, so newest is first
+        var posts = loadList("homehubPosts");
+        posts.unshift(newPost);
+        saveList("homehubPosts", posts);
+
+        document.getElementById("tipMessage").classList.remove("d-none");
+        tipForm.reset();
+        if (currentUserName() !== "") {
+            tipAuthorBox.value = currentUserName();
+        }
+
+        showPosts("allPosts", 100);
+    });
+}
+
+// Makes the HTML for one post card
+function postCard(post) {
+    // A different colour badge for each type of post
+    var badgeColours = { tip: "bg-success", guide: "bg-primary", recommendation: "bg-warning text-dark" };
+    var badge = badgeColours[post.type] || "bg-secondary";
+
+    return '<div class="col-md-6 col-lg-4">' +
+               '<div class="card h-100 shadow-sm border-start border-success border-4">' +
+                   '<div class="card-body">' +
+                       '<span class="badge ' + badge + ' text-capitalize mb-2">' + safeText(post.type) + '</span> ' +
+                       '<span class="badge bg-light text-dark text-capitalize mb-2">' + safeText(post.category) + '</span>' +
+                       '<h5 class="card-title">' + safeText(post.title) + '</h5>' +
+                       '<p class="card-text">' + safeText(post.text) + '</p>' +
+                       '<p class="text-muted small mb-0">By ' + safeText(post.author) + ' &middot; ' + safeText(post.date) + '</p>' +
+                   '</div>' +
+               '</div>' +
+           '</div>';
+}
+
+// Shows up to "howMany" posts inside the box with the id "boxId"
+function showPosts(boxId, howMany) {
+    var box = document.getElementById(boxId);
+    if (!box) {
+        return;
+    }
+
+    var posts = loadList("homehubPosts");
+    var html = "";
+    for (var i = 0; i < posts.length && i < howMany; i++) {
+        html += postCard(posts[i]);
+    }
+
+    if (html === "") {
+        html = '<p class="text-muted text-center">No tips shared yet. Be the first!</p>';
+    }
+    box.innerHTML = html;
+}
+
+showPosts("allPosts", 100);     // submit_tip.html shows every post
+showPosts("latestPosts", 3);    // index.html shows the newest 3

@@ -17,3 +17,4 @@ New files (there was no original, delete them to remove):
   filter.js           -> filtering and sorting. Delete it if you put projects_page.html back.
   privacy_policy.html -> privacy policy page.
   project_details.html -> project details page (F05).
+  submit_tip.html     -> share a tip page (F06).
