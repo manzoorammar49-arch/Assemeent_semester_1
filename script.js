@@ -460,6 +460,7 @@ if (commentForm && projectName) {
 
         var comments = loadList("homehubComments");
         comments.push({
+            id: Date.now(),   // a number that is different for every comment (F12)
             project: projectName,
             name: commentNameBox.value.trim(),
             text: document.getElementById("commentText").value.trim(),
@@ -486,7 +487,8 @@ function showComments() {
             html += '<div class="border-top py-3">' +
                         '<strong>' + safeText(comments[i].name) + '</strong> ' +
                         '<span class="text-muted small">' + safeText(comments[i].date) + '</span>' +
-                        '<p class="mb-0 mt-1">' + safeText(comments[i].text) + '</p>' +
+                        '<p class="mb-1 mt-1">' + safeText(comments[i].text) + '</p>' +
+                        helpfulButton(comments[i].id) +
                     '</div>';
         }
     }
@@ -496,4 +498,148 @@ function showComments() {
     }
     document.getElementById("commentList").innerHTML = html;
     document.getElementById("commentCount").textContent = count;
+}
+
+// HELPFUL VOTES ON COMMENTS (F12)
+// Makes the "Helpful" button for one comment
+function helpfulButton(commentId) {
+    var voted = loadList("helpfulVotes").indexOf(commentId) !== -1;
+    var style = voted ? "btn-success" : "btn-outline-secondary";
+    var count = voted ? 1 : 0;
+    return '<button type="button" class="btn btn-sm ' + style + ' helpful-button" data-id="' + commentId + '">' +
+               '&#128077; Helpful (' + count + ')' +
+           '</button>';
+}
+
+// One click handler for every Helpful button in the comment list
+var commentListBox = document.getElementById("commentList");
+if (commentListBox) {
+    commentListBox.addEventListener("click", function(event) {
+        var button = event.target.closest(".helpful-button");
+        if (!button) {
+            return;
+        }
+        var commentId = Number(button.getAttribute("data-id"));
+        var votes = loadList("helpfulVotes");
+        var place = votes.indexOf(commentId);
+        if (place === -1) {
+            votes.push(commentId);
+        } else {
+            votes.splice(place, 1);
+        }
+        saveList("helpfulVotes", votes);
+        showComments();
+    });
+}
+
+
+
+// RATINGS, LIKES AND HELPFUL VOTES (F12)
+// Only runs on project_details.html.
+// We have no server, so we start every project with some example votes
+// from the community (below) and add this person's own vote on top.
+// This person's votes are saved in the browser:
+//   "myRatings"      e.g. { garden: 4, fence: 5 }   (one star rating per project)
+//   "myLikes"        e.g. ["garden", "ikea"]        (projects they liked)
+//   "helpfulVotes"   e.g. [0, 3]                    (comments they marked helpful)
+var exampleVotes = {
+    garden:    { ratings: [5, 4, 5, 4], likes: 12 },
+    shelves:   { ratings: [4, 4, 3],    likes: 7 },
+    bedroom:   { ratings: [5, 4],       likes: 9 },
+    kitchen:   { ratings: [5, 5, 4, 5], likes: 21 },
+    floor:     { ratings: [4, 3, 4],    likes: 6 },
+    vegetable: { ratings: [5, 5, 4],    likes: 14 },
+    bathroom:  { ratings: [4, 5],       likes: 10 },
+    fence:     { ratings: [5, 4, 4],    likes: 8 },
+    ikea:      { ratings: [3, 4, 5, 2], likes: 18 }
+};
+
+// Gets a saved object like { garden: 4 }. If nothing is saved, gives back {}
+function loadObject(name) {
+    var saved = localStorage.getItem(name);
+    if (saved) {
+        return JSON.parse(saved);
+    }
+    return {};
+}
+
+var starButtons = document.querySelectorAll("#starButtons button");
+var likeButton = document.getElementById("likeButton");
+
+if (likeButton && exampleVotes[projectName]) {
+
+    // Clicking a star saves that rating (clicking the same star again removes it)
+    for (var s = 0; s < starButtons.length; s++) {
+        starButtons[s].addEventListener("click", function() {
+            var myRatings = loadObject("myRatings");
+            var stars = Number(this.getAttribute("data-stars"));
+
+            if (myRatings[projectName] === stars) {
+                delete myRatings[projectName];
+            } else {
+                myRatings[projectName] = stars;
+            }
+            localStorage.setItem("myRatings", JSON.stringify(myRatings));
+            showVotes();
+        });
+    }
+
+    // The like button works like a switch: click to like, click again to unlike
+    likeButton.addEventListener("click", function() {
+        var myLikes = loadList("myLikes");
+        var place = myLikes.indexOf(projectName);
+
+        if (place === -1) {
+            myLikes.push(projectName);      // not liked yet, so like it
+        } else {
+            myLikes.splice(place, 1);       // already liked, so unlike it
+        }
+        saveList("myLikes", myLikes);
+        showVotes();
+    });
+
+    showVotes();
+}
+
+// Works out the average rating and likes, and colours in the stars
+function showVotes() {
+    var ratings = exampleVotes[projectName].ratings.slice();   // copy the example ratings
+    var myRating = loadObject("myRatings")[projectName];
+    if (myRating) {
+        ratings.push(myRating);
+    }
+
+    // Average = add them all up, then divide by how many there are
+    var total = 0;
+    for (var i = 0; i < ratings.length; i++) {
+        total += ratings[i];
+    }
+    var average = (total / ratings.length).toFixed(1);   // 1 decimal place, e.g. 4.3
+
+    var text = average + " out of 5 from " + ratings.length + " ratings";
+    if (myRating) {
+        text += " (you gave " + myRating + " stars)";
+    }
+    document.getElementById("ratingText").textContent = text;
+
+    // Colour in the stars: your rating if you gave one, otherwise the average
+    var starsToShow = myRating || Math.round(average);
+    for (var s = 0; s < starButtons.length; s++) {
+        if (s < starsToShow) {
+            starButtons[s].classList.add("on");
+        } else {
+            starButtons[s].classList.remove("on");
+        }
+    }
+
+    // Likes
+    var liked = loadList("myLikes").indexOf(projectName) !== -1;
+    var likes = exampleVotes[projectName].likes;
+    if (liked) {
+        likes++;
+        likeButton.className = "btn btn-success btn-lg";   // filled green = you liked it
+    } else {
+        likeButton.className = "btn btn-outline-success btn-lg";
+    }
+    document.getElementById("likeCount").textContent = likes;
 }

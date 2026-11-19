@@ -569,6 +569,29 @@
         <!-- These are only written once. script.js shows them under whichever project is open. -->
         <div id="projectExtras" class="d-none">
 
+            <!-- Ratings and likes (F12) -->
+            <div class="card shadow-sm p-4 mt-5">
+                <div class="row g-3 align-items-center">
+                    <div class="col-md-7">
+                        <h5 class="mb-1">Rate this project</h5>
+                        <!-- 5 star buttons. data-stars says how many stars each one gives -->
+                        <div id="starButtons" class="star-buttons" aria-label="Rate this project out of 5">
+                            <button type="button" data-stars="1" aria-label="1 star">&#9733;</button>
+                            <button type="button" data-stars="2" aria-label="2 stars">&#9733;</button>
+                            <button type="button" data-stars="3" aria-label="3 stars">&#9733;</button>
+                            <button type="button" data-stars="4" aria-label="4 stars">&#9733;</button>
+                            <button type="button" data-stars="5" aria-label="5 stars">&#9733;</button>
+                        </div>
+                        <p class="text-muted small mb-0" id="ratingText">No ratings yet</p>
+                    </div>
+                    <div class="col-md-5 text-md-end">
+                        <button type="button" id="likeButton" class="btn btn-outline-success btn-lg">
+                            &#128077; Like (<span id="likeCount">0</span>)
+                        </button>
+                    </div>
+                </div>
+            </div>
+
             <!-- Comments and discussion (F11) -->
             <div class="card shadow-sm p-4 mt-5" id="commentsSection">
                 <h4>Comments and discussion (<span id="commentCount">0</span>)</h4>
