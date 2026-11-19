@@ -11,8 +11,7 @@ F04. Filtering and sorting ✅
 F05. Detailed post/project page ✅ 
 
 F06. Submit a tip, guide or recommendation ✅ 
-F07. Photographs and project galleries
-
+F07. Photographs and project galleries ✅ 
 F08. Responsive desktop/mobile navigation ✅ 
 
 F09. Registration and login pages ✅

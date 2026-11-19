@@ -18,3 +18,4 @@ New files (there was no original, delete them to remove):
   privacy_policy.html -> privacy policy page.
   project_details.html -> project details page (F05).
   submit_tip.html     -> share a tip page (F06).
+  gallery.html        -> photo gallery page (F07).

@@ -266,3 +266,90 @@ function showPosts(boxId, howMany) {
 
 showPosts("allPosts", 100);     // submit_tip.html shows every post
 showPosts("latestPosts", 3);    // index.html shows the newest 3
+
+
+
+// PHOTO GALLERY (F07)
+// Only runs on gallery.html
+var galleryGrid = document.getElementById("galleryGrid");
+
+if (galleryGrid) {
+
+    var galleryPhotos = [];   // the projects being shown right now
+    var currentPhoto = 0;     // which photo is open in the pop-up
+
+    // Shows the photos for one category ("all" shows every photo)
+    function showGallery(category) {
+        galleryPhotos = [];
+        var html = "";
+
+        for (var i = 0; i < allProjects.length; i++) {
+            if (category === "all" || allProjects[i].category === category) {
+                galleryPhotos.push(allProjects[i]);
+                var number = galleryPhotos.length - 1;
+                html += '<div class="col-6 col-md-4 col-lg-3">' +
+                            '<img src="' + allProjects[i].image + '" alt="' + allProjects[i].title + '"' +
+                            ' class="gallery-photo shadow-sm" data-number="' + number + '" tabindex="0">' +
+                            '<p class="small text-center mt-1 mb-0">' + allProjects[i].title + '</p>' +
+                        '</div>';
+            }
+        }
+        galleryGrid.innerHTML = html;
+    }
+
+    // Puts photo number "number" in the pop-up
+    function openPhoto(number) {
+        // Go round in a loop: after the last photo comes the first one again
+        if (number < 0) {
+            number = galleryPhotos.length - 1;
+        }
+        if (number >= galleryPhotos.length) {
+            number = 0;
+        }
+        currentPhoto = number;
+
+        var project = galleryPhotos[number];
+        document.getElementById("photoModalTitle").textContent = project.title;
+        document.getElementById("photoModalImage").src = project.image;
+        document.getElementById("photoModalImage").alt = project.title;
+        document.getElementById("photoModalLink").href = "project_details.html?project=" + project.id;
+    }
+
+    var photoModal = new bootstrap.Modal(document.getElementById("photoModal"));
+
+    // Clicking (or pressing Enter on) a photo opens the pop-up
+    galleryGrid.addEventListener("click", function(event) {
+        if (event.target.classList.contains("gallery-photo")) {
+            openPhoto(Number(event.target.getAttribute("data-number")));
+            photoModal.show();
+        }
+    });
+    galleryGrid.addEventListener("keydown", function(event) {
+        if (event.key === "Enter" && event.target.classList.contains("gallery-photo")) {
+            openPhoto(Number(event.target.getAttribute("data-number")));
+            photoModal.show();
+        }
+    });
+
+    document.getElementById("photoPrev").addEventListener("click", function() {
+        openPhoto(currentPhoto - 1);
+    });
+    document.getElementById("photoNext").addEventListener("click", function() {
+        openPhoto(currentPhoto + 1);
+    });
+
+    // The category buttons
+    var galleryButtons = document.querySelectorAll("#galleryButtons button");
+    for (var b = 0; b < galleryButtons.length; b++) {
+        galleryButtons[b].addEventListener("click", function() {
+            // Make the clicked button green and the others outlined
+            for (var j = 0; j < galleryButtons.length; j++) {
+                galleryButtons[j].className = "btn btn-outline-success rounded-pill px-4";
+            }
+            this.className = "btn btn-success rounded-pill px-4";
+            showGallery(this.getAttribute("data-category"));
+        });
+    }
+
+    showGallery("all");
+}

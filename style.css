@@ -51,3 +51,22 @@ body {
 .card:hover {
     transform: translateY(-5px);
 }
+
+/* Photo gallery (F07) */
+.gallery-photo {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.gallery-photo:hover {
+    transform: scale(1.03);
+}
+
+/* The big photo in the pop-up should never be taller than the screen */
+.gallery-big {
+    max-height: 70vh;
+}

@@ -1,0 +1,107 @@
+
+<head>
+     <title>Gallery - Homehub</title>
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+     <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+   <!-- Top Navbar -->
+    <nav class="navbar navbar-expand-md bg-white shadow-sm">
+        <div class="container">
+
+            <!-- Logo and name (click to go Home) -->
+            <a class="navbar-brand" href="index.html">
+                <img src="logo.jpg" alt="Logo" width="30" height="30" class="d-inline-block align-text-top">
+                Homehub
+            </a>
+
+            <!-- Menu button (F08): only shows on small screens like phones -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainMenu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- The links: in a row on big screens, hidden in the menu button on phones -->
+            <div class="collapse navbar-collapse" id="mainMenu">
+                <div class="navbar-nav ms-auto gap-md-3">
+                    <a class="nav-link" href="index.html">Home</a>
+                    <a class="nav-link" href="about.html">About</a>
+                    <a class="nav-link" href="contact.html">Contact</a>
+                    <a class="nav-link" href="projects_page.html">Projects</a>
+                    <!-- Community menu: a dropdown with the community pages -->
+                    <div class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Community</a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="submit_tip.html">Share a tip</a>
+                            <a class="dropdown-item" href="gallery.html">Photo gallery</a>
+                            <!-- end of community links -->
+                        </div>
+                    </div>
+                    <a class="btn btn-success" href="login.html">Login</a>
+                </div>
+            </div>
+
+        </div>
+    </nav>
+
+    <!-- PHOTO GALLERY (F07) -->
+    <!-- script.js makes a photo for every project in the allProjects list. -->
+    <!-- Clicking a photo opens it big in a pop-up (a Bootstrap "modal").   -->
+    <div class="container my-5">
+
+        <h2 class="text-center mb-2">Project Gallery</h2>
+        <p class="text-center text-muted mb-4">Photos from the community's projects. Click a photo to see it bigger.</p>
+
+        <!-- Category buttons: data-category says which photos to show -->
+        <div class="d-flex flex-wrap justify-content-center gap-2 mb-4" id="galleryButtons">
+            <button class="btn btn-success rounded-pill px-4" data-category="all">All</button>
+            <button class="btn btn-outline-success rounded-pill px-4" data-category="garden">Garden</button>
+            <button class="btn btn-outline-success rounded-pill px-4" data-category="painting">Painting</button>
+            <button class="btn btn-outline-success rounded-pill px-4" data-category="renovation">Renovation</button>
+            <button class="btn btn-outline-success rounded-pill px-4" data-category="building">Building</button>
+        </div>
+
+        <!-- The photos go in here -->
+        <div class="row g-3" id="galleryGrid"></div>
+
+    </div>
+
+
+    <!-- The pop-up that shows one photo big -->
+    <div class="modal fade" id="photoModal" tabindex="-1" aria-labelledby="photoModalTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="photoModalTitle">Photo</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body text-center">
+                    <img id="photoModalImage" src="" alt="" class="img-fluid rounded-3 gallery-big">
+                </div>
+                <div class="modal-footer justify-content-between">
+                    <button type="button" class="btn btn-outline-secondary" id="photoPrev">&larr; Previous</button>
+                    <a href="#" class="btn btn-success" id="photoModalLink">View project</a>
+                    <button type="button" class="btn btn-outline-secondary" id="photoNext">Next &rarr;</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer mt-5">
+        <div class="text-center p-3" >
+            &copy; 2026 Homehub. All rights reserved.
+            <br><a href="privacy_policy.html" class="text-white">Privacy Policy</a>
+        </div>
+    </footer>
+        
+
+
+    <!-- Bootstrap's script: makes the phone menu button open and close (F08) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Our own code (it goes after Bootstrap so it can use Bootstrap's pop-ups) -->
+    <script src="script.js"></script>
+
+</body>
+ 
