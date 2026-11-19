@@ -343,9 +343,20 @@
 
         <!-- ================= Project: Vegetable Garden ================= -->
         <div id="project-vegetable" class="d-none">
-            <div class="ratio ratio-21x9 mb-4">
-                <img src="vegetabe_garden.jpg" class="rounded-4 shadow object-fit-cover" alt="Vegetable Garden">
+            <!-- Before-and-after slider (F14) -->
+            <!-- Drag across the photo (or use the arrow keys) to compare.          -->
+            <!-- To add one to another project: copy this whole compare-box and     -->
+            <!-- change the two photos. The "before" photo is the one with           -->
+            <!-- class="compare-before". script.js makes every compare-box work.     -->
+            <div class="compare-box ratio ratio-21x9 mb-2 rounded-4 shadow">
+                <img src="vegetabe_garden.jpg" class="object-fit-cover" alt="After: raised vegetable beds full of plants">
+                <img src="garden_makeover.jpg" class="object-fit-cover compare-before" alt="Before: a bare, dug-up garden">
+                <div class="compare-line"></div>
+                <span class="compare-label compare-label-before badge bg-dark">Before</span>
+                <span class="compare-label compare-label-after badge bg-success">After</span>
+                <input type="range" min="0" max="100" value="50" class="compare-slider" aria-label="Slide to compare before and after photos">
             </div>
+            <p class="text-muted small text-center mb-4">&harr; Drag across the photo to compare before and after</p>
 
             <span class="badge bg-success mb-2">Garden</span>
             <h1>Vegetable Garden</h1>

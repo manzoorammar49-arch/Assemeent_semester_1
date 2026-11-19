@@ -96,3 +96,54 @@ body {
 .star-buttons button.on {
     color: #f5b301;
 }
+
+/* Before-and-after slider (F14) */
+/* Both photos sit on top of each other. The "before" photo is cut off   */
+/* (clip-path) so only the left part shows. script.js changes how much.  */
+.compare-box {
+    overflow: hidden;
+}
+
+.compare-before {
+    clip-path: inset(0 50% 0 0);
+}
+
+/* The white line where the two photos meet */
+.compare-box > .compare-line {
+    left: 50%;
+    width: 4px;
+    margin-left: -2px;
+    background-color: #ffffff;
+    pointer-events: none;
+}
+
+.compare-box > .compare-label {
+    top: 12px;
+    width: auto;
+    height: auto;
+    font-size: 14px;
+    pointer-events: none;
+}
+
+.compare-box > .compare-label-before {
+    left: 12px;
+}
+
+.compare-box > .compare-label-after {
+    left: auto;
+    right: 12px;
+}
+
+/* The slider covers the whole photo but is see-through, */
+/* so you can drag anywhere on the photo                  */
+.compare-slider {
+    opacity: 0;
+    cursor: ew-resize;
+    margin: 0;
+}
+
+/* Show an outline when using the keyboard */
+.compare-box:focus-within {
+    outline: 3px solid #198754;
+    outline-offset: 3px;
+}

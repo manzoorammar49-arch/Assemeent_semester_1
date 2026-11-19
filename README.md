@@ -21,7 +21,7 @@ F11. Comments and discussion ✅
 F12. Ratings, likes or helpful votes ✅ 
 F13. About and Contact pages ✅ 
 
-F14. Before-and-after image comparison
+F14. Before-and-after image comparison ✅ 
 
 F15. Cost and materials breakdown ✅ 
 

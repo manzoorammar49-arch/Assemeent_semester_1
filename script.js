@@ -643,3 +643,29 @@ function showVotes() {
     }
     document.getElementById("likeCount").textContent = likes;
 }
+
+
+
+// BEFORE-AND-AFTER SLIDER (F14)
+// Makes every .compare-box on the page work.
+// Moving the slider changes how much of the "before" photo is showing.
+var compareBoxes = document.querySelectorAll(".compare-box");
+
+for (var c = 0; c < compareBoxes.length; c++) {
+    setUpCompareBox(compareBoxes[c]);
+}
+
+function setUpCompareBox(box) {
+    var slider = box.querySelector(".compare-slider");
+    var beforePhoto = box.querySelector(".compare-before");
+    var line = box.querySelector(".compare-line");
+
+    function moveSlider() {
+        var percent = slider.value;   // 0 = all "after", 100 = all "before"
+        beforePhoto.style.clipPath = "inset(0 " + (100 - percent) + "% 0 0)";
+        line.style.left = percent + "%";
+    }
+
+    slider.addEventListener("input", moveSlider);
+    moveSlider();
+}
