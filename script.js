@@ -20,6 +20,7 @@ if (projectDetailsPage) {
 
     if (chosenProject) {
         chosenProject.classList.remove("d-none");   // show the project
+        document.getElementById("projectExtras").classList.remove("d-none");   // comments etc. (F11)
     } else {
         document.getElementById("projectNotFound").classList.remove("d-none");   // wrong link
     }
@@ -436,4 +437,63 @@ if (profilePage) {
             window.location.href = "index.html";
         });
     }
+}
+
+
+
+// COMMENTS AND DISCUSSION (F11)
+// Only runs on project_details.html.
+// All comments are saved in one list called "homehubComments".
+// Each comment remembers which project it belongs to, e.g.
+//   { project: "garden", name: "Sam", text: "Looks great!", date: "19 November 2026" }
+var commentForm = document.getElementById("commentForm");
+
+if (commentForm && projectName) {
+
+    var commentNameBox = document.getElementById("commentName");
+    if (currentUserName() !== "") {
+        commentNameBox.value = currentUserName();   // fill in the name if logged in
+    }
+
+    commentForm.addEventListener("submit", function(event) {
+        event.preventDefault();
+
+        var comments = loadList("homehubComments");
+        comments.push({
+            project: projectName,
+            name: commentNameBox.value.trim(),
+            text: document.getElementById("commentText").value.trim(),
+            date: todayText()
+        });
+        saveList("homehubComments", comments);
+
+        document.getElementById("commentText").value = "";
+        showComments();
+    });
+
+    showComments();
+}
+
+// Shows the comments for the project that is open
+function showComments() {
+    var comments = loadList("homehubComments");
+    var html = "";
+    var count = 0;
+
+    for (var i = 0; i < comments.length; i++) {
+        if (comments[i].project === projectName) {
+            count++;
+            html += '<div class="border-top py-3">' +
+                        '<strong>' + safeText(comments[i].name) + '</strong> ' +
+                        '<span class="text-muted small">' + safeText(comments[i].date) + '</span>' +
+                        '<p class="mb-0 mt-1">' + safeText(comments[i].text) + '</p>' +
+                    '</div>';
+        }
+    }
+
+    if (html === "") {
+        html = '<p class="text-muted">No comments yet. Start the discussion!</p>';
+    }
+    document.getElementById("commentList").innerHTML = html;
+    document.getElementById("commentCount").textContent = count;
 }

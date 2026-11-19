@@ -565,6 +565,33 @@
         </div>
 
 
+        <!-- ================= Extra parts for every project ================= -->
+        <!-- These are only written once. script.js shows them under whichever project is open. -->
+        <div id="projectExtras" class="d-none">
+
+            <!-- Comments and discussion (F11) -->
+            <div class="card shadow-sm p-4 mt-5" id="commentsSection">
+                <h4>Comments and discussion (<span id="commentCount">0</span>)</h4>
+
+                <form id="commentForm" class="mb-4">
+                    <div class="mb-2">
+                        <label for="commentName" class="form-label">Your name</label>
+                        <input type="text" id="commentName" class="form-control" maxlength="40" required>
+                    </div>
+                    <div class="mb-2">
+                        <label for="commentText" class="form-label">Your comment</label>
+                        <textarea id="commentText" class="form-control" rows="3" maxlength="500" placeholder="Ask a question or say what you think..." required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-success">Post comment</button>
+                </form>
+
+                <!-- The comments go in here (filled in by script.js) -->
+                <div id="commentList"></div>
+            </div>
+
+        </div>
+
+
         <!-- Shows if the link has a project that does not exist -->
         <div id="projectNotFound" class="d-none text-center py-5">
             <h2>Project not found</h2>
