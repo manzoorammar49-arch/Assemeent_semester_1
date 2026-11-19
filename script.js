@@ -135,6 +135,8 @@ function runSearch() {
 
 
 // LOGIN FORM
+// Checks the email and password against the account saved when signing up.
+// If they match, it remembers that the person is logged in and opens their profile (F10).
 
 var loginForm = document.getElementById("loginForm");
 
@@ -144,8 +146,25 @@ if (loginForm) {
 
         event.preventDefault();
 
-        document.getElementById("message").textContent = "Login button pressed successfully!";
-        document.getElementById("message").style.color = "green";
+        var email = document.getElementById("loginEmail").value.trim().toLowerCase();
+        var password = document.getElementById("loginPassword").value;
+        var message = document.getElementById("message");
+
+        var savedEmail = (localStorage.getItem("userEmail") || "").toLowerCase();
+        var savedPassword = localStorage.getItem("userPassword");
+
+        if (savedEmail === "") {
+            message.textContent = "No account found. Please sign up first.";
+            message.style.color = "red";
+        } else if (email === savedEmail && password === savedPassword) {
+            localStorage.setItem("loggedIn", "yes");
+            message.textContent = "Logged in! Taking you to your profile...";
+            message.style.color = "green";
+            window.location.href = "profile.html";
+        } else {
+            message.textContent = "Wrong email or password. Please try again.";
+            message.style.color = "red";
+        }
 
     });
 
@@ -161,15 +180,18 @@ if (signupForm) {
 
         event.preventDefault();
 
-        var name = document.getElementById("signupName").value;
-        var email = document.getElementById("signupEmail").value;
+        var name = document.getElementById("signupName").value.trim();
+        var email = document.getElementById("signupEmail").value.trim();
         var password = document.getElementById("signupPassword").value;
 
         localStorage.setItem("userName", name);
         localStorage.setItem("userEmail", email);
         localStorage.setItem("userPassword", password);
+        localStorage.setItem("memberSince", todayText());
+        localStorage.setItem("userBio", "");
+        localStorage.setItem("loggedIn", "yes");   // log them in straight away (F10)
 
-        document.getElementById("signupMessage").textContent = "Account created successfully!";
+        document.getElementById("signupMessage").innerHTML = 'Account created successfully! <a href="profile.html">Go to your profile</a>';
         document.getElementById("signupMessage").style.color = "green";
 
         signupForm.reset();
@@ -352,4 +374,66 @@ if (galleryGrid) {
     }
 
     showGallery("all");
+}
+
+
+
+// NAVBAR LOGIN BUTTON (F10)
+// When someone is logged in, the green "Login" button in the navbar
+// changes to "My profile" on every page.
+var navLoginButton = document.querySelector('nav a.btn[href="login.html"]');
+if (navLoginButton && currentUserName() !== "") {
+    navLoginButton.textContent = "My profile";
+    navLoginButton.href = "profile.html";
+}
+
+
+// USER PROFILE PAGE (F10)
+// Only runs on profile.html
+var profilePage = document.getElementById("profilePage");
+
+if (profilePage) {
+
+    if (currentUserName() === "") {
+        // Nobody is logged in, so show the "please log in" box instead
+        document.getElementById("profileLoggedOut").classList.remove("d-none");
+    } else {
+        profilePage.classList.remove("d-none");
+
+        var userName = currentUserName();
+        document.getElementById("profileName").textContent = userName;
+        document.getElementById("profileEmail").textContent = localStorage.getItem("userEmail");
+        document.getElementById("profileSince").textContent = localStorage.getItem("memberSince") || "2026";
+        document.getElementById("profileInitial").textContent = userName.charAt(0).toUpperCase();
+        document.getElementById("profileBio").value = localStorage.getItem("userBio") || "";
+
+        // Save the "About me" box
+        document.getElementById("profileForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            localStorage.setItem("userBio", document.getElementById("profileBio").value.trim());
+            document.getElementById("profileSaved").classList.remove("d-none");
+        });
+
+        // Show the tips this person has shared (F06)
+        var myPostsHtml = "";
+        var myPostCount = 0;
+        var everyPost = loadList("homehubPosts");
+        for (var p = 0; p < everyPost.length; p++) {
+            if (everyPost[p].author === userName) {
+                myPostsHtml += postCard(everyPost[p]);
+                myPostCount++;
+            }
+        }
+        if (myPostsHtml === "") {
+            myPostsHtml = '<p class="text-muted">You have not shared any tips yet. <a href="submit_tip.html">Share one now</a></p>';
+        }
+        document.getElementById("myPosts").innerHTML = myPostsHtml;
+        document.getElementById("profileTipCount").textContent = myPostCount;
+
+        // Log out button
+        document.getElementById("logoutButton").addEventListener("click", function() {
+            localStorage.setItem("loggedIn", "no");
+            window.location.href = "index.html";
+        });
+    }
 }

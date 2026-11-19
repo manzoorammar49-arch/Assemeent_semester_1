@@ -70,3 +70,15 @@ body {
 .gallery-big {
     max-height: 70vh;
 }
+
+/* Profile picture circle (F10) */
+.profile-circle {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: #198754;
+    color: #ffffff;
+    font-size: 48px;
+    line-height: 100px;
+    font-weight: bold;
+}

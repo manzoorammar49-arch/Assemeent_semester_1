@@ -16,8 +16,7 @@ F08. Responsive desktop/mobile navigation ✅
 
 F09. Registration and login pages ✅
 
-F10. User profile page
-
+F10. User profile page ✅ 
 F11. Comments and discussion
 
 F12. Ratings, likes or helpful votes

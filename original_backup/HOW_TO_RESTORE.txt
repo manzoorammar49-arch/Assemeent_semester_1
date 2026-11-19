@@ -19,3 +19,4 @@ New files (there was no original, delete them to remove):
   project_details.html -> project details page (F05).
   submit_tip.html     -> share a tip page (F06).
   gallery.html        -> photo gallery page (F07).
+  profile.html        -> user profile page (F10).
