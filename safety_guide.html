@@ -1,0 +1,178 @@
+
+<head>
+     <title>Safety &amp; Accessibility - Homehub</title>
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+     <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+   <!-- Top Navbar -->
+    <nav class="navbar navbar-expand-md bg-white shadow-sm">
+        <div class="container">
+
+            <!-- Logo and name (click to go Home) -->
+            <a class="navbar-brand" href="index.html">
+                <img src="logo.jpg" alt="Logo" width="30" height="30" class="d-inline-block align-text-top">
+                Homehub
+            </a>
+
+            <!-- Menu button (F08): only shows on small screens like phones -->
+            <button class="navbar-toggler" type="button" aria-label="Toggle menu" data-bs-toggle="collapse" data-bs-target="#mainMenu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- The links: in a row on big screens, hidden in the menu button on phones -->
+            <div class="collapse navbar-collapse" id="mainMenu">
+                <div class="navbar-nav ms-auto gap-md-3">
+                    <a class="nav-link" href="index.html">Home</a>
+                    <a class="nav-link" href="about.html">About</a>
+                    <a class="nav-link" href="contact.html">Contact</a>
+                    <a class="nav-link" href="projects_page.html">Projects</a>
+                    <!-- Community menu: a dropdown with the community pages -->
+                    <div class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Community</a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="submit_tip.html">Share a tip</a>
+                            <a class="dropdown-item" href="gallery.html">Photo gallery</a>
+                            <!-- end of community links -->
+                        </div>
+                    </div>
+                    <a class="btn btn-success" href="login.html">Login</a>
+                </div>
+            </div>
+
+        </div>
+    </nav>
+
+
+    <!-- SAFETY AND ACCESSIBILITY PAGE (F19) -->
+    <!-- col-lg-8 mx-auto = keeps the text a nice reading width in the middle -->
+    <div class="container my-5">
+        <div class="col-lg-8 mx-auto">
+
+            <h1 class="mb-2">Safety &amp; Accessibility</h1>
+            <p class="text-muted mb-4">How to stay safe when doing DIY, and how we make Homehub easy for everyone to use.</p>
+
+
+            <!-- Important warning at the top: alert-danger = red box -->
+            <div class="alert alert-danger" role="note">
+                <strong>Important:</strong> Never do your own gas work, and only do electrical work if you are qualified.
+                Always use a <strong>Gas Safe registered engineer</strong> or a <strong>qualified electrician</strong>.
+            </div>
+
+
+            <!-- ===== Part 1: DIY safety ===== -->
+            <h2 class="mt-5 mb-3">DIY Safety Tips</h2>
+
+            <!-- Each tip is a card. row g-3 = cards in a grid with space between -->
+            <div class="row g-3">
+
+                <!-- Tip 1 -->
+                <div class="col-md-6">
+                    <div class="card h-100 shadow-sm border-start border-warning border-4">
+                        <div class="card-body">
+                            <h5 class="card-title">Wear protective gear</h5>
+                            <p class="card-text">Goggles, gloves and a dust mask protect your eyes, hands and lungs.
+                               Wear strong shoes when moving heavy things.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tip 2 -->
+                <div class="col-md-6">
+                    <div class="card h-100 shadow-sm border-start border-warning border-4">
+                        <div class="card-body">
+                            <h5 class="card-title">Use power tools safely</h5>
+                            <p class="card-text">Read the instructions first. Unplug tools before changing blades or bits,
+                               and keep your fingers away from the cutting edge.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tip 3 -->
+                <div class="col-md-6">
+                    <div class="card h-100 shadow-sm border-start border-warning border-4">
+                        <div class="card-body">
+                            <h5 class="card-title">Ladders and working high up</h5>
+                            <p class="card-text">Put the ladder on flat, firm ground and never stand on the top step.
+                               If you can, have someone hold the bottom.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tip 4 -->
+                <div class="col-md-6">
+                    <div class="card h-100 shadow-sm border-start border-warning border-4">
+                        <div class="card-body">
+                            <h5 class="card-title">Check before you drill</h5>
+                            <p class="card-text">Use a pipe and cable detector before drilling into walls or floors,
+                               so you do not hit a water pipe or a live wire.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tip 5 -->
+                <div class="col-md-6">
+                    <div class="card h-100 shadow-sm border-start border-warning border-4">
+                        <div class="card-body">
+                            <h5 class="card-title">Paint, glue and fresh air</h5>
+                            <p class="card-text">Open windows when using paint, glue or sprays. Take breaks outside
+                               if you feel dizzy or get a headache.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tip 6 -->
+                <div class="col-md-6">
+                    <div class="card h-100 shadow-sm border-start border-warning border-4">
+                        <div class="card-body">
+                            <h5 class="card-title">Lift safely and get help</h5>
+                            <p class="card-text">Bend your knees and keep your back straight when lifting.
+                               Ask a friend to help with anything big or heavy.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <p class="mt-3">Every project on Homehub also has its own <strong>&#9888;&#65039; Stay safe</strong> box
+               with tips for that job. <a href="projects_page.html" class="link-success">Browse the projects</a>.</p>
+
+
+            <!-- ===== Part 2: Accessibility ===== -->
+            <h2 class="mt-5 mb-3">Accessibility</h2>
+            <p>We want everyone to be able to use Homehub. Here is what we do:</p>
+
+            <!-- list-group = a neat Bootstrap list with lines between each item -->
+            <ul class="list-group mb-4">
+                <li class="list-group-item"><strong>Image descriptions:</strong> photos have alternative text, so screen readers can describe them to blind users.</li>
+                <li class="list-group-item"><strong>Works on any screen:</strong> pages change their layout for phones, tablets and computers.</li>
+                <li class="list-group-item"><strong>Labelled forms:</strong> every box in our forms has a label that says what to type in it.</li>
+                <li class="list-group-item"><strong>Labelled menu button:</strong> on phones, screen readers read the menu button out as "Toggle menu".</li>
+                <li class="list-group-item"><strong>Clear headings:</strong> pages use headings in order, so they are easy to scan and to move around with a screen reader.</li>
+                <li class="list-group-item"><strong>Zoom friendly:</strong> you can zoom in with your browser (Ctrl and +) and the page will still fit.</li>
+            </ul>
+
+            <p>Having trouble using Homehub? Please tell us on our
+               <a href="contact.html" class="link-success">Contact page</a> and we will try to fix it.</p>
+
+        </div>
+    </div>
+
+
+    <footer class="footer mt-5">
+        <div class="text-center p-3">
+            &copy; 2026 Homehub. All rights reserved.
+            <br><a href="privacy_policy.html" class="text-white">Privacy Policy</a> &middot; <a href="safety_guide.html" class="text-white">Safety &amp; Accessibility</a>
+        </div>
+    </footer>
+
+
+    <!-- Bootstrap's script: makes the phone menu button open and close (F08) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Our own code (it goes after Bootstrap so it can use Bootstrap's pop-ups) -->
+    <script src="script.js"></script>
+
+</body>

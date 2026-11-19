@@ -31,7 +31,7 @@ F17. Ask a question and receive answers
 
 F18. Product and tradesperson recommendations
 
-F19. Accessibility and safety guidance
+F19. Accessibility and safety guidance ✅ 
 
 F20. Community moderation and reporting
 

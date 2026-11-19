@@ -20,3 +20,4 @@ New files (there was no original, delete them to remove):
   submit_tip.html     -> share a tip page (F06).
   gallery.html        -> photo gallery page (F07).
   profile.html        -> user profile page (F10).
+  safety_guide.html   -> safety and accessibility page (F19).
